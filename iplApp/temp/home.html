@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>all colleges</title>
+
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+    #t_head{
+          background:black !important;
+          color:white !important;
+          }
+        table{
+            border:solid 2px green;
+        }
+        table tr{
+            border:solid 1px red;
+        }
+        table tr td{
+             padding:10px;
+             text-align:center;
+        }
+        .clg_heading{
+            text-align:center;
+            padding:26px 10px 10px 26px;
+          }
+         #custom_div{
+            margin:10px 10px 10px 30px;
+            }
+           .nav-heading{
+            color:white;
+          }
+
+
+    </style>
+
+</head>
+<body>
+<div >
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">IPL MATCHES</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          SEASON
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2019/">2019</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2018/">2018</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2017">2017</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2016">2016</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2015">2015</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2014">2014</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2013">2013</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2012">2012</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2011">2011</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2010">2010</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2009">2009</a>
+          <a class="dropdown-item" href="http://127.0.0.1:8000/ipl/2008">2008</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+
+<h3 class="clg_heading">
+    IPL {{season}}
+</h3>
+
+<div class="container-fluid mx-auto">
+        <table class="table table-striped" >
+            <tr scope="row" class="font-weight-bold" style="background:gray;color:white">
+                <td>
+                    VENUE
+
+                </td>
+                <td>
+                    TEAM1
+
+                </td>
+                <td>
+                    TEAM2
+                </td>
+                <td>
+                    TOSS RESULT
+                </td>
+                <td>
+                    TOSS DECISION
+                </td>
+                <td>
+                    WON
+                </td>
+                <td>
+                    PLAYER OF THE MATCH
+                </td>
+                <td>
+                        
+                </td>
+            </tr>
+
+        {% for x in matches %}
+
+            <tr scope="row">
+                <td>
+                    {{x.city}}
+                </td>
+                <td>{{x.team1}}</td>
+                <td>{{x.team2}}</td>
+                <td>
+                    {{x.toss_winner}}
+                </td>
+                <td>
+                    {{x.toss_decision}}
+
+                </td>
+                <td>
+                    {{x.winner}}
+                </td>
+                <td>
+                    {{x.player_of_match}}
+                </td>
+                <td>
+                    <a href="http://127.0.0.1:8000/ipl/match/{{x.id}}" class="badge badge-primary">&nbsp;&nbsp;details&nbsp;&nbsp;</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
